@@ -33,11 +33,11 @@ def bulk_tweet_shortener(tweets)
 end
 
 def selective_tweet_shortener(tweet)
-  if tweet.split("").count > 140
-    word_substituter(tweet)
-  else
-    tweet
-  end
+  # if tweet.split("").count > 140
+  #   word_substituter(tweet)
+  # else
+  #   tweet
+  # end
 end
 
 def shortened_tweet_truncator(tweet)
@@ -47,4 +47,5 @@ def shortened_tweet_truncator(tweet)
   # else
   #   rtn_tweet
   # end
+  rtn_tweet.split("").count > 140 ? rtn_tweet[0..136] + "..." : rtn_tweet
 end
