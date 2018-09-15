@@ -17,11 +17,14 @@ def word_substituter(tweet)
   rtn_tweet = tweet.split(" ")
   rtn_tweet.map! {
     |word|
-    if dictionary.keys.include?(word.downcase)
-      dictionary[word.downcase]
-    else
-      word
-    end
+    
+    # if dictionary.keys.include?(word.downcase)
+    #   dictionary[word.downcase]
+    # else
+    #   word
+    # end
+    
+    dictionary.keys.include?(word.downcase) ? dictionary[word.downcase] : word
   }
   rtn_tweet.join(" ")
 end
@@ -38,14 +41,18 @@ def selective_tweet_shortener(tweet)
   # else
   #   tweet
   # end
+  
+  tweet.split("").count > 140 ? word_substituter(tweet) : tweet
 end
 
 def shortened_tweet_truncator(tweet)
   rtn_tweet = selective_tweet_shortener(tweet)
+  
   # if rtn_tweet.split("").count > 140
   #   rtn_tweet[0..136] + "..."
   # else
   #   rtn_tweet
   # end
+  
   rtn_tweet.split("").count > 140 ? rtn_tweet[0..136] + "..." : rtn_tweet
 end
