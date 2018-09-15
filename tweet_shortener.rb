@@ -42,9 +42,9 @@ end
 
 def shortened_tweet_truncator(tweet)
   rtn_tweet = selective_tweet_shortener(tweet)
-  if rtn_tweet.split("").count > 140
-    rtn_tweet[0..136] + "..."
-  else
-    rtn_tweet
-  end
+  # if rtn_tweet.split("").count > 140
+  #   rtn_tweet[0..136] + "..."
+  # else
+  #   rtn_tweet
+  # end
 end
